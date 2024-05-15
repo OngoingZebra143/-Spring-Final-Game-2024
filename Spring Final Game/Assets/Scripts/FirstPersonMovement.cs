@@ -53,14 +53,14 @@ public class FirstPersonMovement : MonoBehaviour
         _canPlayerJump = Physics.OverlapSphere(groundCheckpoint.position, 0.5f, whatIsGround).Length > 0;
 
         //Make player jump
-        if (Input.GetKeyDown(KeyCode.Space) && _canPlayerJump)
+        if (Input.GetKeyDown(KeyCode.Space) && _canPlayerJump) 
         {
             _moveInput.y = jumpForce;
         }
 
         //Player Animations
         float inputMagnitude = Mathf.Clamp01(_moveInput.magnitude);
-        _playerAnimator.SetFloat("InputMagnitude", inputMagnitude, 0.05f, Time.deltaTime);
+        //_playerAnimator.SetFloat("InputMagnitude", inputMagnitude, 0.05f, Time.deltaTime);
         _characterController.Move(_moveInput * Time.deltaTime);
 
         //Camera rotation
